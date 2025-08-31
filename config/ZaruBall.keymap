@@ -59,6 +59,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LEFT_CONTROL>, <&kp LG(LC(Q))>;
+
+            tapping-term-ms = <200>;
         };
     };
 };
