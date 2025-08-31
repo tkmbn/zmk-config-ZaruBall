@@ -45,14 +45,14 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LALT LANG2>, <&mo RAISE>, <&mo MOUSE>;
+            bindings = <&mt RIGHT_CONTROL LANG2>, <&mo RAISE>, <&mo MOUSE>;
         };
 
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt RCTL LANG1>, <&mo RAISE>, <&mo 5>;
+            bindings = <&mt LEFT_CONTROL LANG1>, <&mo RAISE>, <&mo 5>;
         };
     };
 };
