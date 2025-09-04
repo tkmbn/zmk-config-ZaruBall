@@ -132,7 +132,7 @@
 
         lower_layer {
             display-name = "Lower";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
             bindings = <
 &kp F1  &kp F2     &kp F3    &kp F4    &kp F5     &kp F6                 &trans  &trans  &trans  &trans              &kp F7        &kp F8        &kp F9        &kp F10        &none  &none
 &trans  &none      &none     &none     &none      &none                  &trans  &trans  &trans  &trans              &kp LA(F1)    &kp LC(LEFT)  &kp LC(UP)    &kp LC(RIGHT)  &none  &none
