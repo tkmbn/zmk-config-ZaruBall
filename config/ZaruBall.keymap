@@ -122,11 +122,11 @@
             display-name = "Mouse";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp LC(N1)  &kp LC(N2)  &kp LC(N3)  &none      &none               &none                     &trans  &trans  &trans  &trans                           &kp F7         &none         &none     &kp F10       &none          &none
-&kp ESC     &none       &kp LA(W)   &kp LA(E)  &kp LA(R)           &none                     &trans  &trans  &trans  &trans                           &kp LG(LEFT)   &kp LEFT      &kp UP    &kp RIGHT     &kp LG(RIGHT)  &none
-&trans      &none       &mkp RCLK   &mkp MCLK  &mkp_exit_AML LCLK  &msc SCRL_UP    &trans    &trans  &trans  &trans  &msc SCRL_LEFT     &kp LC(UP)    &mkp MB3       &mkp LCLK     &kp DOWN  &mkp RCLK     &none          &none
-&trans      &none       &none       &mo 2      &none               &msc SCRL_DOWN  &trans    &trans  &trans  &trans  &msc SCRL_RIGHT    &kp LC(LEFT)  &kp LC(RIGHT)  &kp LG(LBKT)  &mo 2     &kp LG(RBKT)  &none          &trans
-&trans      &trans                  &trans     &trans              &trans          &trans                                               &kp LC(LEFT)  &kp LC(RIGHT)                                                       &trans
+&kp LC(N1)  &kp LC(N2)  &kp LC(N3)  &none      &none               &none                             &trans  &trans  &trans  &trans                           &kp F7         &none         &none     &kp F10       &none          &none
+&kp ESC     &none       &kp LA(W)   &kp LA(E)  &kp LA(R)           &none                             &trans  &trans  &trans  &trans                           &kp LG(LEFT)   &kp LEFT      &kp UP    &kp RIGHT     &kp LG(RIGHT)  &none
+&trans      &none       &mkp RCLK   &mkp MCLK  &mkp_exit_AML LCLK  &msc SCRL_UP    &trans            &trans  &trans  &trans  &msc SCRL_LEFT     &kp LC(UP)    &mkp MB3       &mkp LCLK     &kp DOWN  &mkp RCLK     &none          &none
+&trans      &none       &none       &mo 2      &none               &msc SCRL_DOWN  &kp LG(LS(N4))    &trans  &trans  &trans  &msc SCRL_RIGHT    &kp LC(LEFT)  &kp LC(RIGHT)  &kp LG(LBKT)  &mo 2     &kp LG(RBKT)  &none          &trans
+&trans      &trans                  &trans     &trans              &trans          &trans                                                       &kp LC(LEFT)  &kp LC(RIGHT)                                                       &trans
             >;
         };
 
