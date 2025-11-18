@@ -733,17 +733,23 @@
  };
  
  static int on_activity_state(const zmk_event_t *eh) {
-    //  struct zmk_activity_state_changed *state_ev = as_zmk_activity_state_changed(eh);
+     struct zmk_activity_state_changed *state_ev = as_zmk_activity_state_changed(eh);
  
-    //  if (!state_ev) {
-    //      LOG_WRN("NO EVENT, leaving early");
-    //      return 0;
-    //  }
+     if (!state_ev) {
+         LOG_WRN("NO EVENT, leaving early");
+         return 0;
+     }
  
-    //  bool enable = state_ev->state == ZMK_ACTIVITY_ACTIVE ? 1 : 0;
-    //  for (size_t i = 0; i < ARRAY_SIZE(pmw3610_devs); i++) {
-    //      pmw3610_set_performance(pmw3610_devs[i], enable);
-    //  }
+     bool enable = (state_ev->state == ZMK_ACTIVITY_ACTIVE);
+     for (size_t i = 0; i < ARRAY_SIZE(pmw3610_devs); i++) {
+        //  pmw3610_set_performance(pmw3610_devs[i], enable);
+        int err = pmw3610_set_performance(pmw3610_devs[i], enable);
+        if (err) {
+            LOG_ERR("Failed to set performance on device %zu: %d", i, err);
+        } else {
+            LOG_INF("Set performance (AML %s) on device %zu", enable ? "ON" : "OFF", i);
+        }
+     }
  
      return 0;
  }
