@@ -207,8 +207,8 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
-        force-awake = <0>;   
-        /* keep the sensor awake while ZMK activity state is ACTIVE,
+          
+        /* force-awake; keep the sensor awake while ZMK activity state is ACTIVE,
         fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
         thus, the sensor would be a `wakeup-source` イベント連動させる場合は false */
     };
