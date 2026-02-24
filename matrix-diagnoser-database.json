@@ -1,0 +1,609 @@
+{
+  "pins": {
+    "ZaruBall_left_xiao_d 0": {
+      "silk": "R0",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 1": {
+      "silk": "R1",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 2": {
+      "silk": "R2",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 3": {
+      "silk": "R3",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 6": {
+      "silk": "R4",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 10": {
+      "silk": "C0",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 9": {
+      "silk": "C1",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 8": {
+      "silk": "C2",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 7": {
+      "silk": "C3",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_gpio0 9": {
+      "silk": "C4",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_gpio0 10": {
+      "silk": "C5",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_left_xiao_d 4": {
+      "silk": "C6",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 0": {
+      "silk": "R0",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 1": {
+      "silk": "R1",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 2": {
+      "silk": "R2",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 3": {
+      "silk": "R3",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 6": {
+      "silk": "R4",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 10": {
+      "silk": "C0",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 9": {
+      "silk": "C1",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 8": {
+      "silk": "C2", 
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_xiao_d 7": {
+      "silk": "C3",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_gpio0 9": {
+      "silk": "C4",
+      "line_diode": "",
+      "interrupt_diode": ""
+    },
+    "ZaruBall_right_gpio0 10": {
+      "silk": "C5",
+      "line_diode": "",
+      "interrupt_diode": ""
+    }
+  },
+  "keys": [
+    {
+      "matrix": [
+        0,
+        0
+      ],
+      "silk_sw": "SW1",
+      "silk_d": "D1"
+    },
+    {
+      "matrix": [
+        0,
+        1
+      ],
+      "silk_sw": "SW6",
+      "silk_d": "D6"
+    },
+    {
+      "matrix": [
+        0,
+        2
+      ],
+      "silk_sw": "SW10",
+      "silk_d": "D10"
+    },
+    {
+      "matrix": [
+        0,
+        3
+      ],
+      "silk_sw": "SW15",
+      "silk_d": "D15"
+    },
+    {
+      "matrix": [
+        0,
+        4
+      ],
+      "silk_sw": "SW20",
+      "silk_d": "D20"
+    },
+    {
+      "matrix": [
+        0,
+        5
+      ],
+      "silk_sw": "SW25",
+      "silk_d": "D25"
+    },
+    {
+      "matrix": [
+        0,
+        7
+      ],
+      "silk_sw": "SW4",
+      "silk_d": "D4"
+    },
+    {
+      "matrix": [
+        0,
+        8
+      ],
+      "silk_sw": "SW9",
+      "silk_d": "D9"
+    },
+    {
+      "matrix": [
+        0,
+        9
+      ],
+      "silk_sw": "SW13",
+      "silk_d": "D13"
+    },
+    {
+      "matrix": [
+        0,
+        10
+      ],
+      "silk_sw": "SW17",
+      "silk_d": "D17"
+    },
+    {
+      "matrix": [
+        0,
+        11
+      ],
+      "silk_sw": "SW21",
+      "silk_d": "D21"
+    },
+    {
+      "matrix": [
+        0,
+        12
+      ],
+      "silk_sw": "SW25",
+      "silk_d": "D25"
+    },
+    {
+      "matrix": [
+        1,
+        0
+      ],
+      "silk_sw": "SW2",
+      "silk_d": "D2"
+    },
+    {
+      "matrix": [
+        1,
+        1
+      ],
+      "silk_sw": "SW7",
+      "silk_d": "D7"
+    },
+    {
+      "matrix": [
+        1,
+        2
+      ],
+      "silk_sw": "SW11",
+      "silk_d": "D11"
+    },
+    {
+      "matrix": [
+        1,
+        3
+      ],
+      "silk_sw": "SW16",
+      "silk_d": "D16"
+    },
+    {
+      "matrix": [
+        1,
+        4
+      ],
+      "silk_sw": "SW21",
+      "silk_d": "D21"
+    },
+    {
+      "matrix": [
+        1,
+        5
+      ],
+      "silk_sw": "SW26",
+      "silk_d": "D26"
+    },
+    {
+      "matrix": [
+        1,
+        7
+      ],
+      "silk_sw": "SW5",
+      "silk_d": "D5"
+    },
+    {
+      "matrix": [
+        1,
+        8
+      ],
+      "silk_sw": "SW10",
+      "silk_d": "D10"
+    },
+    {
+      "matrix": [
+        1,
+        9
+      ],
+      "silk_sw": "SW14",
+      "silk_d": "D14"
+    },
+    {
+      "matrix": [
+        1,
+        10
+      ],
+      "silk_sw": "SW18",
+      "silk_d": "D18"
+    },
+    {
+      "matrix": [
+        1,
+        11
+      ],
+      "silk_sw": "SW22",
+      "silk_d": "D22"
+    },
+    {
+      "matrix": [
+        1,
+        12
+      ],
+      "silk_sw": "SW26",
+      "silk_d": "D26"
+    },
+    {
+      "matrix": [
+        2,
+        0
+      ],
+      "silk_sw": "SW3",
+      "silk_d": "D3"
+    },
+    {
+      "matrix": [
+        2,
+        1
+      ],
+      "silk_sw": "SW8",
+      "silk_d": "D8"
+    },
+    {
+      "matrix": [
+        2,
+        2
+      ],
+      "silk_sw": "SW12",
+      "silk_d": "D12"
+    },
+    {
+      "matrix": [
+        2,
+        3
+      ],
+      "silk_sw": "SW17",
+      "silk_d": "D17"
+    },
+    {
+      "matrix": [
+        2,
+        4
+      ],
+      "silk_sw": "SW22",
+      "silk_d": "D22"
+    },
+    {
+      "matrix": [
+        2,
+        5
+      ],
+      "silk_sw": "SW27",
+      "silk_d": "D27"
+    },
+    {
+      "matrix": [
+        2,
+        6
+      ],
+      "silk_sw": "SW30",
+      "silk_d": "D30"
+    },
+    {
+      "matrix": [
+        4,
+        10
+      ],
+      "silk_sw": "SW1",
+      "silk_d": "D1"
+    },
+    {
+      "matrix": [
+        2,
+        7
+      ],
+      "silk_sw": "SW6",
+      "silk_d": "D6"
+    },
+    {
+      "matrix": [
+        2,
+        8
+      ],
+      "silk_sw": "SW11",
+      "silk_d": "D11"
+    },
+    {
+      "matrix": [
+        2,
+        9
+      ],
+      "silk_sw": "SW15",
+      "silk_d": "D15"
+    },
+    {
+      "matrix": [
+        2,
+        10
+      ],
+      "silk_sw": "SW19",
+      "silk_d": "D19"
+    },
+    {
+      "matrix": [
+        2,
+        11
+      ],
+      "silk_sw": "SW23",
+      "silk_d": "D23"
+    },
+    {
+      "matrix": [
+        2,
+        12
+      ],
+      "silk_sw": "SW27",
+      "silk_d": "D27"
+    },
+    {
+      "matrix": [
+        3,
+        0
+      ],
+      "silk_sw": "SW4",
+      "silk_d": "D4"
+    },
+    {
+      "matrix": [
+        3,
+        1
+      ],
+      "silk_sw": "SW9",
+      "silk_d": "D9"
+    },
+    {
+      "matrix": [
+        3,
+        2
+      ],
+      "silk_sw": "SW13",
+      "silk_d": "D13"
+    },
+    {
+      "matrix": [
+        3,
+        3
+      ],
+      "silk_sw": "SW18",
+      "silk_d": "D18"
+    },
+    {
+      "matrix": [
+        3,
+        4
+      ],
+      "silk_sw": "SW23",
+      "silk_d": "D23"
+    },
+    {
+      "matrix": [
+        3,
+        5
+      ],
+      "silk_sw": "SW28",
+      "silk_d": "D28"
+    },
+    {
+      "matrix": [
+        3,
+        6
+      ],
+      "silk_sw": "SW31",
+      "silk_d": "D31"
+    },
+    {
+      "matrix": [
+        4,
+        9
+      ],
+      "silk_sw": "SW2",
+      "silk_d": "D2"
+    },
+    {
+      "matrix": [
+        3,
+        7
+      ],
+      "silk_sw": "SW7",
+      "silk_d": "D7"
+    },
+    {
+      "matrix": [
+        3,
+        8
+      ],
+      "silk_sw": "SW12",
+      "silk_d": "D12"
+    },
+    {
+      "matrix": [
+        3,
+        9
+      ],
+      "silk_sw": "SW16",
+      "silk_d": "D16"
+    },
+    {
+      "matrix": [
+        3,
+        10
+      ],
+      "silk_sw": "SW20",
+      "silk_d": "D20"
+    },
+    {
+      "matrix": [
+        3,
+        11
+      ],
+      "silk_sw": "SW24",
+      "silk_d": "D24"
+    },
+    {
+      "matrix": [
+        3,
+        12
+      ],
+      "silk_sw": "SW28",
+      "silk_d": "D28"
+    },
+    {
+      "matrix": [
+        4,
+        0
+      ],
+      "silk_sw": "SW5",
+      "silk_d": "D5"
+    },
+    {
+      "matrix": [
+        4,
+        2
+      ],
+      "silk_sw": "SW14",
+      "silk_d": "D14"
+    },
+    {
+      "matrix": [
+        4,
+        3
+      ],
+      "silk_sw": "SW19",
+      "silk_d": "D19"
+    },
+    {
+      "matrix": [
+        4,
+        4
+      ],
+      "silk_sw": "SW24",
+      "silk_d": "D24"
+    },
+    {
+      "matrix": [
+        4,
+        5
+      ],
+      "silk_sw": "SW29",
+      "silk_d": "D29"
+    },
+    {
+      "matrix": [
+        4,
+        6
+      ],
+      "silk_sw": "SW32",
+      "silk_d": "D32"
+    },
+    {
+      "matrix": [
+        4,
+        8
+      ],
+      "silk_sw": "SW3",
+      "silk_d": "D3"
+    },
+    {
+      "matrix": [
+        4,
+        7
+      ],
+      "silk_sw": "SW8",
+      "silk_d": "D8"
+    },
+    {
+      "matrix": [
+        4,
+        12
+      ],
+      "silk_sw": "SW29",
+      "silk_d": "D29"
+    }
+  ]
+}
