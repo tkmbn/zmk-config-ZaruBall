@@ -152,7 +152,7 @@
         compatible = "alps,ec11";
         a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
+        steps = <24>;
         status = "disabled";
     };
 };
@@ -162,7 +162,7 @@
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder>;
-        triggers-per-rotation = <20>;
+        triggers-per-rotation = <12>;
     };
 };
 
@@ -201,11 +201,12 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <1500000>;
-        irq-gpios = <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <1400>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
+        motion-gpios = <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        res-cpi = <1400>;
+        zephyr,axis-x = <INPUT_REL_X>;
+        zephyr,axis-y = <INPUT_REL_Y>;
+        invert-x;
+        invert-y;
 
         force-awake;
         /* force-awake; keep the sensor awake while ZMK activity state is ACTIVE,

@@ -19,15 +19,14 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 &trackball_listener {
-    input-processors =  <
-                         &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)
-                         //&zip_temp_layer MOUSE 500
-                         &zip_xy_scaler 4 3
-                        >;
+    input-processors = <
+                        &zip_temp_layer MOUSE 500
+                        &zip_xy_scaler 4 3
+                       >;
     scroller {
         layers = <SCROLL>;
         input-processors = <
-                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+                            &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
                             &zip_xy_scaler 1 20
                             &zip_xy_to_scroll_mapper
                             >;
