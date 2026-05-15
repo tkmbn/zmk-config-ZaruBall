@@ -13,8 +13,12 @@
 // ============================================================
 
 // Move scaling  (speed = NUM / DEN)
-#define MOVE_SCALER_NUM  4
-#define MOVE_SCALER_DEN  3
+#define MOVE_SCALER_NUM   4
+#define MOVE_SCALER_DEN   3
+
+// Scroll scaling (speed = NUM / DEN)
+#define SCROLL_SCALER_NUM 1
+#define SCROLL_SCALER_DEN 20
 
 // Inertia — trigger (ms): sensor polling interval × 2 以上推奨
 #define INERTIA_TRIGGER_MS              35
@@ -66,7 +70,7 @@
         layers = <SCROLL>;
         input-processors = <
                             &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
-                            &zip_xy_scaler 1 20
+                            &zip_xy_scaler SCROLL_SCALER_NUM SCROLL_SCALER_DEN
                             &zip_xy_to_scroll_mapper
                             &zip_inertia
                             >;
