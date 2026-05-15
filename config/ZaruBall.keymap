@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <zmk-input-inertia/input/processor/input_inertia.dtsi>
 
 #define BASE     0
 #define MOUSE    1
@@ -18,10 +19,23 @@
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
+&zip_inertia {
+    trigger-ms = <35>;
+    move-decay-factor-int = <90>;
+    move-report-interval-ms = <35>;
+    move-threshold-start = <15>;
+    move-threshold-stop = <1>;
+    scroll-decay-factor-int = <85>;
+    scroll-report-interval-ms = <65>;
+    scroll-threshold-start = <2>;
+    scroll-threshold-stop = <0>;
+};
+
 &trackball_listener {
     input-processors = <
                         &zip_temp_layer MOUSE 500
                         &zip_xy_scaler 4 3
+                        &zip_inertia
                        >;
     scroller {
         layers = <SCROLL>;
@@ -29,6 +43,7 @@
                             &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
                             &zip_xy_scaler 1 20
                             &zip_xy_to_scroll_mapper
+                            &zip_inertia
                             >;
     };
 };
