@@ -8,6 +8,31 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <zmk-input-inertia/input/processor/input_inertia.dtsi>
 
+// ============================================================
+// Trackball settings — edit these to tune behavior
+// ============================================================
+
+// Move scaling  (speed = NUM / DEN)
+#define MOVE_SCALER_NUM  4
+#define MOVE_SCALER_DEN  3
+
+// Inertia — trigger (ms): sensor polling interval × 2 以上推奨
+#define INERTIA_TRIGGER_MS              35
+
+// Inertia — move
+#define INERTIA_MOVE_DECAY              90   // 減衰率 0-100 (大きいほどゆっくり止まる)
+#define INERTIA_MOVE_INTERVAL_MS        35
+#define INERTIA_MOVE_THRESHOLD_START    15
+#define INERTIA_MOVE_THRESHOLD_STOP      1
+
+// Inertia — scroll
+#define INERTIA_SCROLL_DECAY            85
+#define INERTIA_SCROLL_INTERVAL_MS      65
+#define INERTIA_SCROLL_THRESHOLD_START   2
+#define INERTIA_SCROLL_THRESHOLD_STOP    0
+
+// ============================================================
+
 #define BASE     0
 #define MOUSE    1
 #define LOWER    2
@@ -20,21 +45,21 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 &zip_inertia {
-    trigger-ms = <35>;
-    move-decay-factor-int = <90>;
-    move-report-interval-ms = <35>;
-    move-threshold-start = <15>;
-    move-threshold-stop = <1>;
-    scroll-decay-factor-int = <85>;
-    scroll-report-interval-ms = <65>;
-    scroll-threshold-start = <2>;
-    scroll-threshold-stop = <0>;
+    trigger-ms = <INERTIA_TRIGGER_MS>;
+    move-decay-factor-int = <INERTIA_MOVE_DECAY>;
+    move-report-interval-ms = <INERTIA_MOVE_INTERVAL_MS>;
+    move-threshold-start = <INERTIA_MOVE_THRESHOLD_START>;
+    move-threshold-stop = <INERTIA_MOVE_THRESHOLD_STOP>;
+    scroll-decay-factor-int = <INERTIA_SCROLL_DECAY>;
+    scroll-report-interval-ms = <INERTIA_SCROLL_INTERVAL_MS>;
+    scroll-threshold-start = <INERTIA_SCROLL_THRESHOLD_START>;
+    scroll-threshold-stop = <INERTIA_SCROLL_THRESHOLD_STOP>;
 };
 
 &trackball_listener {
     input-processors = <
                         &zip_temp_layer MOUSE 500
-                        &zip_xy_scaler 4 3
+                        &zip_xy_scaler MOVE_SCALER_NUM MOVE_SCALER_DEN
                         &zip_inertia
                        >;
     scroller {
