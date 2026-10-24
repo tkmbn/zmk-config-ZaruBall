@@ -35,6 +35,10 @@
 #define INERTIA_SCROLL_THRESHOLD_START   2
 #define INERTIA_SCROLL_THRESHOLD_STOP    0
 
+// AML — 発動後 MOUSE レイヤーを維持する時間 / 打鍵後に AML を抑止する時間
+#define AML_TIMEOUT_MS     500
+#define AML_PRIOR_IDLE_MS  300
+
 // ============================================================
 
 #define BASE     0
@@ -60,9 +64,19 @@
     scroll-threshold-stop = <INERTIA_SCROLL_THRESHOLD_STOP>;
 };
 
+// AML (auto mouse layer)
+// - 打鍵後 AML_PRIOR_IDLE_MS 以内はボールが動いても MOUSE レイヤーにしない (打鍵振動対策)
+// - excluded-positions 以外のキーを押すと即 MOUSE レイヤーを抜ける
+//   (excluded が空だとキーでは抜けず timeout まで残る)
+//   excluded: マウスボタン / スクロール / 修飾キー / mo 2
+&zip_temp_layer {
+    require-prior-idle-ms = <AML_PRIOR_IDLE_MS>;
+    excluded-positions = <34 35 36 37 42 44 45 47 55 60 50 53 64 67 68 70 71>;
+};
+
 &trackball_listener {
     input-processors = <
-                        &zip_temp_layer MOUSE 500
+                        &zip_temp_layer MOUSE AML_TIMEOUT_MS
                         &zip_xy_scaler MOVE_SCALER_NUM MOVE_SCALER_DEN
                         &zip_inertia
                        >;
