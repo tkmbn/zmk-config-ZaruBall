@@ -6,6 +6,40 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <zmk-input-inertia/input/processor/input_inertia.dtsi>
+
+// ============================================================
+// Trackball settings — edit these to tune behavior
+// ============================================================
+
+// Move scaling  (speed = NUM / DEN)
+#define MOVE_SCALER_NUM   4
+#define MOVE_SCALER_DEN   3
+
+// Scroll scaling (speed = NUM / DEN)
+#define SCROLL_SCALER_NUM 1
+#define SCROLL_SCALER_DEN 20
+
+// Inertia — trigger (ms): sensor polling interval × 2 以上推奨
+#define INERTIA_TRIGGER_MS              35
+
+// Inertia — move
+#define INERTIA_MOVE_DECAY              90   // 減衰率 0-100 (大きいほどゆっくり止まる)
+#define INERTIA_MOVE_INTERVAL_MS        35
+#define INERTIA_MOVE_THRESHOLD_START    15
+#define INERTIA_MOVE_THRESHOLD_STOP      1
+
+// Inertia — scroll
+#define INERTIA_SCROLL_DECAY            85
+#define INERTIA_SCROLL_INTERVAL_MS      65
+#define INERTIA_SCROLL_THRESHOLD_START   2
+#define INERTIA_SCROLL_THRESHOLD_STOP    0
+
+// AML — 発動後 MOUSE レイヤーを維持する時間 / 打鍵後に AML を抑止する時間
+#define AML_TIMEOUT_MS     500
+#define AML_PRIOR_IDLE_MS  300
+
+// ============================================================
 
 #define BASE     0
 #define MOUSE    1
@@ -18,18 +52,41 @@
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
+&zip_inertia {
+    trigger-ms = <INERTIA_TRIGGER_MS>;
+    move-decay-factor-int = <INERTIA_MOVE_DECAY>;
+    move-report-interval-ms = <INERTIA_MOVE_INTERVAL_MS>;
+    move-threshold-start = <INERTIA_MOVE_THRESHOLD_START>;
+    move-threshold-stop = <INERTIA_MOVE_THRESHOLD_STOP>;
+    scroll-decay-factor-int = <INERTIA_SCROLL_DECAY>;
+    scroll-report-interval-ms = <INERTIA_SCROLL_INTERVAL_MS>;
+    scroll-threshold-start = <INERTIA_SCROLL_THRESHOLD_START>;
+    scroll-threshold-stop = <INERTIA_SCROLL_THRESHOLD_STOP>;
+};
+
+// AML (auto mouse layer)
+// - 打鍵後 AML_PRIOR_IDLE_MS 以内はボールが動いても MOUSE レイヤーにしない (打鍵振動対策)
+// - excluded-positions 以外のキーを押すと即 MOUSE レイヤーを抜ける
+//   (excluded が空だとキーでは抜けず timeout まで残る)
+//   excluded: マウスボタン / スクロール / 修飾キー / mo 2
+&zip_temp_layer {
+    require-prior-idle-ms = <AML_PRIOR_IDLE_MS>;
+    excluded-positions = <34 35 36 37 42 44 45 47 55 60 50 53 64 67 68 70 71>;
+};
+
 &trackball_listener {
-    input-processors =  <
-                         &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)
-                         //&zip_temp_layer MOUSE 500
-                         &zip_xy_scaler 4 3
-                        >;
+    input-processors = <
+                        &zip_temp_layer MOUSE AML_TIMEOUT_MS
+                        &zip_xy_scaler MOVE_SCALER_NUM MOVE_SCALER_DEN
+                        &zip_inertia
+                       >;
     scroller {
         layers = <SCROLL>;
         input-processors = <
-                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
-                            &zip_xy_scaler 1 20
+                            &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)
+                            &zip_xy_scaler SCROLL_SCALER_NUM SCROLL_SCALER_DEN
                             &zip_xy_to_scroll_mapper
+                            &zip_inertia
                             >;
     };
 };
@@ -72,6 +129,21 @@
         };
 
         // Customed Hold-Tap for SandS
+
+        // Cmd / 英数 の兼用キー
+        // balanced: 押下中に他キーを「押して離した」ときだけ Cmd (ロール打鍵は英数)
+        // require-prior-idle-ms: 打鍵直後に押したら必ず英数
+        gui_eisu: gui_eisu {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+
+            display-name = "Cmd/Eisu";
+        };
 
         SandS: SandS {
             compatible = "zmk,behavior-hold-tap";
@@ -129,7 +201,7 @@
 &kp GRAVE  &kp Q       &kp W   &kp E         &kp R           &kp T                           &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                   &kp Y        &kp U   &kp I      &kp O    &kp P      &kp BSLH
 &kp TAB    &kp A       &kp S   &kp D         &kp F           &kp G        &lt 3 LA(SPACE)    &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &lt 4 LBKT     &kp H        &kp J   &kp K      &kp L    &kp SEMI   &lt 1 SQT
 &kp LSHFT  &kp Z       &kp X   &kp C         &kp V           &kp B        &lt 1 GRAVE        &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &lt 2 RBKT     &kp N        &kp M   &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
-&kp LCTRL  &kp C_MUTE          &kp LEFT_ALT  &mt LGUI LANG2  &lt 1 SPACE  &lt 2 LANG1                                                                &kp BACKSPACE  &lt 3 ENTER                                         &lt 1 RCTRL
+&kp LCTRL  &kp C_MUTE          &kp LEFT_ALT  &gui_eisu LGUI LANG2  &lt 1 SPACE  &lt 2 LANG1                                                                &kp BACKSPACE  &lt 3 ENTER                                         &lt 1 RCTRL
             >;
         };
 

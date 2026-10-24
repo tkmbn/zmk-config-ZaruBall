@@ -2,31 +2,26 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: badjeff
-      url-base: https://github.com/badjeff
     - name: caksoylar
       url-base: https://github.com/caksoylar
-    - name: ImSota
-      url-base: https://github.com/ImSota
+    - name: amgskobo
+      url-base: https://github.com/amgskobo
     - name: prospector
       url-base: https://github.com/t-ogura
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main
       import: app/west.yml
-    - name: zmk-pmw3610-driver
-      remote: badjeff
-      revision: zmk-0.3
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: v0.3-branch
-    - name: zmk-naginata
-      remote: ImSota
+      revision: main
+    - name: zmk-input-inertia
+      remote: amgskobo
       revision: main
     - name: prospector-zmk-module
       remote: prospector
-      revision: v1.1.1
+      revision: v2.2.3
       path: modules/prospector-zmk-module
   self:
     path: config
