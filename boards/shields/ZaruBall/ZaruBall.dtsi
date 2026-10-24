@@ -208,10 +208,10 @@
         invert-x;
         invert-y;
 
+        smart-mode;
         force-awake;
-        /* force-awake; keep the sensor awake while ZMK activity state is ACTIVE,
-        fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
-        thus, the sensor would be a `wakeup-source` イベント連動させる場合は false */
+        /* Zephyr 標準ドライバの force-awake は ZMK の idle/sleep と連動せず、
+           センサーを常に run モードに保つ (rest モードへ downshift しない) */
     };
 };
 
