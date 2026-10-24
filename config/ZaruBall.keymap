@@ -62,7 +62,6 @@
 
 &trackball_listener {
     input-processors = <
-                        &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)
                         &zip_temp_layer MOUSE 500
                         &zip_xy_scaler MOVE_SCALER_NUM MOVE_SCALER_DEN
                         &zip_inertia
