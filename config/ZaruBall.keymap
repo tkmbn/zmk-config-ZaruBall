@@ -132,15 +132,16 @@
         // Customed Hold-Tap for SandS
 
         // Cmd / 英数 の兼用キー
-        // balanced: 押下中に他キーを「押して離した」ときだけ Cmd (ロール打鍵は英数)
-        // require-prior-idle-ms: 打鍵直後に押したら必ず英数
+        // hold-preferred: 押下中に他キーが押されたら Cmd (Cmd+C 等を素早く押しても確実に効く)
+        //   ※ balanced だと Cmd を先に離す素早いショートカットが英数になってしまった
+        // require-prior-idle-ms: 打鍵直後 (文章入力中) に押したら必ず英数
         gui_eisu: gui_eisu {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <200>;
             bindings = <&kp>, <&kp>;
 
             display-name = "Cmd/Eisu";
